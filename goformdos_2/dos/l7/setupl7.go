@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"os/signal"
+	"runtime"
 	"sync"
 	"syscall"
 	"time"
@@ -147,6 +148,9 @@ func (inf *Layer7) StartDos(wg *sync.WaitGroup) {
 			}
 		*/
 	}()
+
+	// Set goMaxProcs (Number of CPUs in use)
+	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	// validate threads
 	sync := make(chan struct{})
