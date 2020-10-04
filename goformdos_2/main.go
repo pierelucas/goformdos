@@ -157,7 +157,7 @@ func validateArgs() (err error) {
 
 func checkError(err error) {
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 }
@@ -198,7 +198,7 @@ func main() {
 		log.Println("-------------------------------goformdos")
 	}()
 
-	layer7 := l7.New(*flagMode, *flagTime, *flagThreads, *flagURL) // Initialize new layer7.Layer7 object
+	layer7 := l7.New(*flagMode, *flagURL, *flagThreads, *flagTime) // Initialize new layer7.Layer7 object
 
 	var wg sync.WaitGroup
 
